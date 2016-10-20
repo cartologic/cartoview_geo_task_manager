@@ -1,0 +1,19 @@
+<fieldset >
+    <legend>{{ label }}</legend>
+    <div layout="row" layout-wrap flex>
+        <div flex="100">
+            <md-checkbox aria-label="Select All"
+                ng-checked="isAllChecked()"
+                md-indeterminate="isIndeterminate()"
+                ng-click="toggleAll()">
+                <span ng-if="isAllChecked()">Un-</span>Select All
+            </md-checkbox>
+        </div>
+        <div flex-xs flex="50" ng-repeat="profile in profiles" class="user-selector">
+            <md-checkbox ng-checked="exists(profile.id)" ng-click="toggle(profile.id)">
+            {{ profile.first_name }} {{ profile.last_name }} ({{ profile.username }})
+            </md-checkbox>
+        </div>
+    </div>
+</fieldset>
+

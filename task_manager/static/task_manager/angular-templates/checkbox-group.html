@@ -1,0 +1,19 @@
+<fieldset >
+    <legend>{{ attribute.label }}</legend>
+    <div layout="row" layout-wrap flex>
+        <div flex-xs flex="50">
+            <md-checkbox aria-label="Select All"
+                ng-checked="isChecked()"
+                md-indeterminate="isIndeterminate()"
+                ng-click="toggleAll()">
+                <span ng-if="isChecked()">Un-</span>Select All
+            </md-checkbox>
+        </div>
+        <div class="demo-select-all-checkboxes" flex="100" ng-repeat="option in attribute.options">
+            <md-checkbox ng-checked="exists(option.value, selected)" ng-click="toggle(option.value, selected)">
+            {{ option.label }}
+            </md-checkbox>
+        </div>
+    </div>
+</fieldset>
+

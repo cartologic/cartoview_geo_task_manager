@@ -1,0 +1,79 @@
+<md-content class="map-results">
+    <div ng-show="!service.selected">
+        <md-list ng-repeat="result in identify.content.results" ng-if="result.features.length > 0" >
+            <md-list-item class="map-results-header"><h4>{{ result.title }}</h4></md-list-item>
+            <md-list-item aria-label=""
+                ng-repeat="feature in result.features"
+                ng-click="identify.selectFeature(feature)">
+                <p task-manager-dynamic-template template="config.listItemTpl" feature="feature"></p>
+                <span><md-icon>chevron_right</md-icon></span>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+        </md-list>
+    </div>
+    <div class="" ng-if="service.selected">
+
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Info">
+                <div layout="row" layout-align="start center">
+                    <div class="md-padding" flex>
+                        <h4 task-manager-dynamic-template template="config.listItemTpl" feature="service.selected"></h4>
+                    </div>
+                    <!--<md-button class="md-raised" ng-click="identify.selectFeature()" ng-if="identify.featuresCount != 1">
+                        <md-icon>chevron_left</md-icon>
+                    </md-button>-->
+
+                </div>
+                <md-list>
+                    <md-list-item ng-repeat="(name, value) in identify.selected.properties" ng-if="name!='status'">
+                        <span flex="30"  style="font-weight: bold;">{{ name }}</span>
+                        <p flex >{{ value }}</p>
+                        <md-divider></md-divider>
+                    </md-list-item>
+                </md-list>
+                <div class="md-padding">
+                    <md-input-container  class="md-block" flex-gt-sm>
+                        <label>Status</label>
+                        <md-select ng-model="service.task.status">
+                          <md-option ng-repeat="o in service.states" value="{{o.value}}">
+                            {{o.label}}
+                          </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <div  ng-if="attribute.fieldType=='datatime'">
+                        <h4>Due Date</h4>
+                        <md-datepicker ng-model="service.task.dueDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                    <users-selector ng-model="service.task.assigned_to" filter="{{ config.surveyors }}" label="Surveyors"></users-selector>
+                </div>
+            </md-tab>
+            <md-tab label="History">
+
+
+                <div class="cv-comments" layout="column">
+                    <md-list>
+                        <md-list-item class="md-3-line " ng-repeat="item in service.history">
+                            <img ng-src="{{item.user.avatar}}" class="md-avatar" />
+                            <div class="md-list-item-text">
+                                <h3>{{ item.user.name }}</h3>
+                                <p style="white-space: pre;">On {{ item.created_at  | date:'MM/dd/yyyy @ h:mma'}} </p>
+                                <p>changed to <b>{{ service.getStatusLabel(item.status) }}</b></p>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                    </md-list>
+                </div>
+
+
+            </md-tab>
+            <md-tab label="Comments">
+                <cartoview-comments identifier="{{ service.appConfig.id }}-{{ service.selected.getId() }}"></cartoview-comments>
+            </md-tab>
+            <md-tab label="Images">
+                <cartoview-images identifier="{{ service.appConfig.id }}-{{ service.selected.getId() }}"></cartoview-images>
+            </md-tab>
+        </md-tabs>
+
+
+    </div>
+</md-content>

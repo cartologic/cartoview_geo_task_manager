@@ -1,0 +1,26 @@
+<div class="md-padding">
+    <p>Drag the marker to set the location or </p>
+    <md-button class="md-primary md-raised" ng-click="collectorService.setToCurrentLocation()">Set To My Location</md-button>
+    <div ng-repeat="a in collectorService.config.attributes">
+        <md-input-container ng-if="a.fieldType=='text' || a.fieldType=='number'" class="md-block" flex-gt-sm >
+            <label>{{ a.label }}</label>
+            <input ng-model="collectorService.featureProperties[a.name]" type="{{a.fieldType}}">
+        </md-input-container>
+        <md-input-container ng-if="a.fieldType=='textarea'" class="md-block" flex-gt-sm >
+            <label>{{ a.label }}</label>
+            <textarea ng-model="collectorService.featureProperties[a.name]" rows="5"></textarea>
+        </md-input-container>
+        <md-input-container ng-if="a.fieldType=='select'" class="md-block" flex-gt-sm>
+            <label>{{ a.label }}</label>
+            <md-select ng-model="collectorService.featureProperties[a.name]">
+              <md-option ng-repeat="o in a.options" value="{{o.value}}">
+                {{o.label}}
+              </md-option>
+            </md-select>
+        </md-input-container>
+        <p ng-if="a.fieldType=='radioList'">{{ a.label }}</p>
+        <md-radio-group ng-model="collectorService.featureProperties[a.name]" ng-if="a.fieldType=='radioList'">
+            <md-radio-button ng-repeat="o in a.options" value="{{o.value}}">{{o.label}}</md-radio-button>
+        </md-radio-group>
+    </div>
+</div>
