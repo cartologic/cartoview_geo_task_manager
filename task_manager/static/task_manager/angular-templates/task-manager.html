@@ -33,6 +33,11 @@
                 </md-list>
                 <div class="md-padding">
                     <md-input-container  class="md-block" flex-gt-sm>
+                        <label>Description</label>
+                        <textarea ng-model="service.task.description"></textarea>
+                    </md-input-container>
+
+                    <md-input-container  class="md-block" flex-gt-sm>
                         <label>Status</label>
                         <md-select ng-model="service.task.status">
                           <md-option ng-repeat="o in service.states" value="{{o.value}}">
@@ -40,6 +45,7 @@
                           </md-option>
                         </md-select>
                     </md-input-container>
+
                     <div  ng-if="attribute.fieldType=='datatime'">
                         <h4>Due Date</h4>
                         <md-datepicker ng-model="service.task.dueDate" md-placeholder="Enter date"></md-datepicker>
@@ -58,6 +64,7 @@
                                 <h3>{{ item.user.name }}</h3>
                                 <p style="white-space: pre;">On {{ item.created_at  | date:'MM/dd/yyyy @ h:mma'}} </p>
                                 <p>changed to <b>{{ service.getStatusLabel(item.status) }}</b></p>
+                                <p>{{ item.description }}</p>
                             </div>
                             <md-divider></md-divider>
                         </md-list-item>

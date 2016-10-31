@@ -8,6 +8,7 @@ class Task(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(UserModel, related_name="tasks_creators")
     assigned_to = models.ManyToManyField(UserModel, related_name="tasks_surveyors")
+    description = models.TextField(blank=True, null=True)
     feature_identifier = models.CharField(max_length=256)
     status = models.IntegerField(default=1)
     due_date = models.DateTimeField(null=True, blank=True)
