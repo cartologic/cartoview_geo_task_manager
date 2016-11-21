@@ -1,5 +1,6 @@
 from django.templatetags.static import static
 from cartoview.user_engage.viewer_widgets import widgets as user_engage_widgets
+from . import APP_NAME
 widgets = user_engage_widgets + [{
     'title': 'Task Manager',
     'name': 'task_manager',
@@ -8,12 +9,12 @@ widgets = user_engage_widgets + [{
         'app': 'cartoview.taskManagerConfigApp',
         'directive': 'task-manager-config',
         'js': [
-            static("task_manager/js/config/config-directive.js"),
-            static("task_manager/js/config/users-selector-directive.js"),
+            static("%s/js/config/config-directive.js" % APP_NAME),
+            static("%s/js/config/users-selector-directive.js" % APP_NAME),
 
         ],
         "css": [
-            static("task_manager/css/config.css"),
+            static("%s/css/config.css" % APP_NAME),
             # "https://code.getmdl.io/1.1.3/material.cyan-light_blue.min.css"
         ]
     },
@@ -23,10 +24,10 @@ widgets = user_engage_widgets + [{
         'js': [
             static("vendor/angular-resource.min.js"),
             static("vendor/angular-resource-tastypie.min.js"),
-            static("task_manager/js/view/task-manager.js"),
+            static("%s/js/view/task-manager.js" % APP_NAME),
         ],
         "css": [
-            static("task_manager/css/view.css"),
+            static("%s/css/view.css" % APP_NAME),
         ]
     },
 }]

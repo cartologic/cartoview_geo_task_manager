@@ -66,7 +66,7 @@ angular.module('cartoview.viewer.editor').directive('taskManagerConfig',  functi
     return {
         transclude: true,
         replace: true,
-        templateUrl: urlsHelper.static + "task_manager/angular-templates/config-fields.html?" + new Date().getTime(),
+        templateUrl: urlsHelper.static + "cartoview_geo_task_manager/angular-templates/config-fields.html?" + new Date().getTime(),
         controller: function ($scope, dataService, $tastypieResource, $mdDialog) {
             var attributesResource = new $tastypieResource("geonodelayerattribute");
 

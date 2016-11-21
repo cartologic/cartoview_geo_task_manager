@@ -9,7 +9,7 @@ angular.module('cartoview.viewer.editor').directive('usersSelector', function (u
         scope: {
             selected: '=ngModel'
         },
-        templateUrl: urlsHelper.static + "task_manager/angular-templates/users-selector.html?" + new Date().getTime(),
+        templateUrl: urlsHelper.static + "cartoview_geo_task_manager/angular-templates/users-selector.html?" + new Date().getTime(),
         controller: function ($scope, $attrs, $tastypieResource) {
             var profileResource = new $tastypieResource("profiles", null, "geonode");
 

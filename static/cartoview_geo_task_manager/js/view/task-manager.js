@@ -66,14 +66,14 @@ taskManagerApp.service('taskManagerService', function(urlsHelper, mapService, ap
         {value:4, label: "Closed"}
     ];
     service.getStatusLabel = function (value) {
-        var label = ""
+        var label = "";
         angular.forEach(service.states,function (status) {
             if(status.value == value){
                 label = status.label;
                 return false;
             }
 
-        })
+        });
         return label;
     };
 
@@ -85,7 +85,7 @@ taskManagerApp.service('taskManagerService', function(urlsHelper, mapService, ap
                 return false;
             }
 
-        })
+        });
         return profile;
     };
     service.canEdit = function () {
@@ -160,13 +160,13 @@ taskManagerApp.service('taskManagerService', function(urlsHelper, mapService, ap
     var save = function () {
         var formatGMLOptions = {
             featureNS: featureNS,
-            featureType: featureType,
-            //gmlOptions: {srsName: mapService.map.olMap.getView().getProjection().getCode()}
+            //gmlOptions: {srsName: mapService.map.olMap.getView().getProjection().getCode()},
+            featureType: featureType
         };
 
         service.task.$save().then(function(result) {
             console.log(result);
-            var feature = new ol.Feature()
+            var feature = new ol.Feature();
             feature.setProperties({status:service.task.status});
             feature.setId(identifyService.selected.getId());
             var node = formatWFS.writeTransaction(null, [feature], null, formatGMLOptions);
@@ -205,7 +205,7 @@ taskManagerApp.directive('taskManager',  function(urlsHelper, identifyService, a
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: urlsHelper.static + "task_manager/angular-templates/task-manager.html",
+        templateUrl: urlsHelper.static + "cartoview_geo_task_manager/angular-templates/task-manager.html",
         controller: function ($scope) {
 
             $scope.identify = identifyService;
@@ -239,60 +239,6 @@ taskManagerApp.directive('taskManagerDynamicTemplate',  function() {
     }
 });
 
-
-// taskManagerApp.directive('taskManagerCheckboxGroup', function (urlsHelper) {
-//
-//     return {
-//         restrict: 'E',
-//         transclude: true,
-//         scope: {
-//             feature: '=',
-//             attribute: '='
-//         },
-//         templateUrl: urlsHelper.static + "task_manager/angular-templates/checkbox-group.html",
-//         controller: function ($scope) {
-//             $scope.selected = [];
-//             if($scope.feature.properties[$scope.attribute.name]){
-//                 $scope.selected = $scope.feature.properties[$scope.attribute.name].split(",");
-//             }
-//             $scope.toggle = function (item, list) {
-//                 var idx = list.indexOf(item);
-//                 if (idx > -1) {
-//                     list.splice(idx, 1);
-//                 }
-//                 else {
-//                     list.push(item);
-//                 }
-//                 $scope.feature.properties[$scope.attribute.name] = list.join(",");
-//             };
-//
-//             $scope.exists = function (item, list) {
-//                 return list.indexOf(item) > -1;
-//             };
-//
-//             $scope.isIndeterminate = function () {
-//                 return ($scope.selected.length !== 0 &&
-//                 $scope.selected.length !== $scope.attribute.options.length);
-//             };
-//             $scope.isChecked = function () {
-//                 return $scope.selected.length === $scope.attribute.options.length;
-//             };
-//             $scope.toggleAll = function () {
-//                 if ($scope.selected.length === $scope.attribute.options.length) {
-//                     $scope.selected = [];
-//                 } else if ($scope.selected.length === 0 || $scope.selected.length > 0) {
-//                     $scope.selected = [];
-//                     angular.forEach($scope.attribute.options, function (option) {
-//                         $scope.selected.push(option.value)
-//                     });
-//                 }
-//                 $scope.feature.properties[$scope.attribute.name] = $scope.selected.join(",");
-//             };
-//         }
-//     }
-// });
-
-
 taskManagerApp.directive('usersSelector', function (urlsHelper, appConfig, taskManagerService) {
     return {
         restrict: 'E',
@@ -300,7 +246,7 @@ taskManagerApp.directive('usersSelector', function (urlsHelper, appConfig, taskM
         scope: {
             selected: '=ngModel'
         },
-        templateUrl: urlsHelper.static + "task_manager/angular-templates/users-selector.html?" + new Date().getTime(),
+        templateUrl: urlsHelper.static + "cartoview_geo_task_manager/angular-templates/users-selector.html?" + new Date().getTime(),
         controller: function ($scope, $attrs, $tastypieResource) {
             var profileResource = new $tastypieResource("profiles");
 
