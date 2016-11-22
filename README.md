@@ -16,8 +16,8 @@ Field Operators
 - Update task status
 
 To Download and Install
-1. [Download](http://cartologic.com/cartoview/download/) and install Cartoview 
-2. Download the GeoTask Manager from the app market, or you can directly download the zip file of this Github Repository
-3. Start CartoView
+- [Download](http://cartologic.com/cartoview/download/) and install Cartoview 
+-  Download the GeoTask Manager from the app market, or you can directly download the zip file of this Github Repository
+- Start CartoView
     * login as admin
     * Apps > Upload and select the zip file you downloaded
