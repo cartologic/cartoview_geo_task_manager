@@ -16,6 +16,7 @@ Field Operators:
 - View their assigned tasks from the mobile device
 - take notes
 - Update task status
+- Upload documents and capture images for the assigned task
 
 Download and Install:
 - [Download](http://cartologic.com/cartoview/download/) and install Cartoview 
