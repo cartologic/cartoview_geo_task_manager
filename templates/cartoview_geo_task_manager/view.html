@@ -30,6 +30,7 @@
         taskManagerApp.constant("CURRENT_USER_ID", {{ request.user.id }})
     </script>
 {% endblock %}
+{% block header_toolbar %}{% endblock %}
 {% block body_directives %}ng-app="cartoview.taskManagerApp" ng-controller="cartoview.taskManagerApp.MainController"{% endblock %}
 {% block body %}
     <div class="full-height" layout-align="space-around stretch" layout="row" layout-sm="column" layout-xs="column">
