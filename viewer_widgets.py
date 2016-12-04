@@ -22,8 +22,8 @@ widgets = user_engage_widgets + [{
         'app': 'cartoview.taskManagerApp',
         'directive': 'task-manager',
         'js': [
-            static("vendor/angular-resource.min.js"),
-            static("vendor/angular-resource-tastypie.min.js"),
+            static("vendor/angular-resource/angular-resource.min.js"),
+            static("vendor/angular-resource-tastypie/src/angular-resource-tastypie.min.js"),
             static("%s/js/view/task-manager.js" % APP_NAME),
         ],
         "css": [
