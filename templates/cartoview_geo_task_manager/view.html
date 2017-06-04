@@ -34,31 +34,6 @@
 {% block body_directives %}ng-app="cartoview.taskManagerApp" ng-controller="cartoview.taskManagerApp.MainController"{% endblock %}
 {% block body %}
     <div class="full-height" layout-align="space-around stretch" layout="row" layout-sm="column" layout-xs="column">
-        <!--<div flex-gt-sm="30" class="md-whiteframe-1dp feature-list-ct" layout="column" ng-show="identifyService.hasContent">
-            <md-content class="header" layout="row">
-                <md-button ng-click="toggleSidenav()" class="md-primary" >
-                    <md-icon aria-label="Menu" class="material-icons">menu</md-icon>
-                </md-button>
-                <span flex></span>
-                <md-button ng-click="identify.clearContent()" class="md-primary" ng-show="identify.hasContent">
-                    <md-icon aria-label="Menu" class="material-icons">close</md-icon>
-                </md-button>
-                <md-progress-circular ng-show="collectorService.busy"
-                                      ng-disabled="!collectorService.busy"
-                                      class="md-primary md-hue-1"
-                                      md-diameter="60">
-                </md-progress-circular>
-                <md-button ng-click="collectorService.saveNewItem()" class="md-primary" ng-show="collectorService.form.visible">
-                    <md-icon aria-label="Menu" class="material-icons">save</md-icon>
-                </md-button>
-                <md-button ng-click="collectorService.cancelNewItem()" class="md-primary" ng-show="collectorService.form.visible">
-                    <md-icon aria-label="Menu" class="material-icons">close</md-icon>
-                </md-button>
-            </md-content>
-            <md-content flex class="content">
-                <task-manager></task-manager>
-            </md-content>
-        </div>-->
         <div class="content-panel" layout="column" ng-class="{'md-whiteframe-1dp has-content': identify.hasContent}">
             <md-content class="header" layout="row">
                 <md-button ng-click="toggleSidenav()" class="md-primary" ng-class="{'md-fab': !identify.hasContent}">
