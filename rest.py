@@ -6,9 +6,11 @@ from tastypie.authorization import Authorization
 from tastypie import fields
 from avatar.templatetags.avatar_tags import avatar_url
 
+
 class TaskResource(ModelResource):
     user = fields.DictField(readonly=True)
     surveyors = fields.ListField()
+
     class Meta:
         queryset = Task.objects.all()
         filtering = {"feature_identifier": ALL}
@@ -18,10 +20,11 @@ class TaskResource(ModelResource):
 
     def save(self, bundle, skip_errors=False):
         user_model = Task.assigned_to.field.rel.to
-        assigned_to = user_model.objects.filter(id__in=bundle.data["assigned_to"])
+        assigned_to = user_model.objects.filter(
+            id__in=bundle.data["assigned_to"])
         bundle.obj.created_by = bundle.request.user
 
-        res =  super(TaskResource, self).save(bundle, skip_errors)
+        res = super(TaskResource, self).save(bundle, skip_errors)
         bundle.obj.assigned_to = assigned_to
         bundle.obj.save()
         return res
@@ -31,6 +34,3 @@ class TaskResource(ModelResource):
 
     def dehydrate_user(self, bundle):
         return dict(name=bundle.obj.created_by.username, avatar=avatar_url(bundle.obj.created_by, 60))
-
-from cartoview.app_manager.api import rest_api
-rest_api.register(TaskResource())

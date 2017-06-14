@@ -6,9 +6,9 @@ taskManagerApp.config(function($tastypieProvider, $httpProvider, urlsHelper) {
   // $tastypieProvider.add('cartoview', {url: urlsHelper.rest});
   // $tastypieProvider.add('geonode', {url: urlsHelper.geonodeRest});
   // $tastypieProvider.setDefault('cartoview');
-  $tastypieProvider.setResourceUrl(urlsHelper.geonodeRest);
+  $tastypieProvider.setResourceUrl("/api");
   $tastypieProvider.add('cartoview', {
-    url: urlsHelper.rest + "../"
+    url: urlsHelper.rest
   });
   $httpProvider.defaults.xsrfCookieName = 'csrftoken';
   $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';

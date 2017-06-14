@@ -1,0 +1,43 @@
+{
+  "name": "CartoviewSummaryViewer",
+  "version": "1.0.0",
+  "description": "Geo Task Manager is a Field WorkForce and Task Management Application intended to work with Geographic Layers 1.GeoTask Manager is a CartoView Applications 2.With Geo Task Manager you can assign tasks to any type of geographic feature 3.Use it for: inspection, maintenance, service request, violation, response 4.For example you can assign maintenance tasks for the building layer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p --progress",
+    "dev": "webpack -d --config webpack.config-dev.js --watch --progress --color"
+  },
+  "author": "cartologic",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "@boundlessgeo/sdk": "^1.0.0",
+    "jquery": "^3.2.1",
+    "material-ui": "^0.18.1",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
+    "react-dom": "^15.5.4",
+    "react-intl": "^2.3.0",
+    "react-tap-event-plugin": "^2.0.1",
+    "react-transition-group": "^1.1.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.28.2",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
+    "file-loader": "^0.11.1",
+    "json-loader": "^0.5.4",
+    "path": "^0.12.7",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.18.0",
+    "webpack": "^1.14.0",
+    "xml-loader": "^1.2.1"
+  }
+}

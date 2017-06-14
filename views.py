@@ -255,5 +255,5 @@ CREATE INDEX spatial_{0}_the_geom
   ON public.{0}
   USING gist
   (the_geom);
-    
+
     """.format(layer_name))
