@@ -1,10 +1,6 @@
 #CartoView Geo Task Manager 
 
->  Geo Task Manager is a Field WorkForce and Task Management Application intended to work with Geographic Layers
->*  GeoTask Manager is a [CartoView Applications] (www.cartologic.com/cartoview)
->*  With Geo Task Manager you can assign tasks to any type of geographic feature
->*   Use it for: inspection, maintenance, service request, violation, response
->*  For example you can assign maintenance tasks for the building layer
+Field WorkForce and Task Management Application. With Geo Task Manager you can assign tasks. Use it for: inspection, maintenance, service request, violation, response.
 
 Project Managers will:
 - Create new projectes
